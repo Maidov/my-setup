@@ -1,0 +1,7 @@
+alias ..='cd ..'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+alias rename='mv $1 $2'
+alias addmusic='. ~/.bash_scripts/addMusicFZF.sh'
+alias li='. ~/.bash_scripts/listimg.sh'

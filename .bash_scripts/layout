@@ -1,0 +1,36 @@
+#!/bin/sh
+
+#!/bin/bash
+
+# Функция обработки параметров
+process() {
+    case $1 in
+        "Chill")
+            source "$HOME/.local/bin/chill"
+            # Добавьте свой код для обработки параметра "Chill"
+            ;;
+        "Study")
+            source "$HOME/.local/bin/study"
+            # Добавьте свой код для обработки параметра "Study"
+            ;;
+        "Code")
+            source "$HOME/.local/bin/programming"
+            # Добавьте свой код для обработки параметра "Code"
+            ;;
+        "Nope")
+            ;;
+        *)
+            echo "Unknown selection"
+            ;;
+    esac
+}
+
+# Получаем выбор пользователя из dmenu
+col_bg_inact="#691883"
+col_fg_inact="#f3ccff"
+col_border_act="#e79aff"
+col_fg_act="#691883"
+selected=$(cat "$HOME/.local/bin/layout-list" | dmenu -nb "$col_bg_inact" -nf "$col_fg_inact" -sb "$col_border_act" -sf "$col_fg_act")
+#{ "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_bg_inact, "-nf", col_fg_inact, "-sb", col_border_act, "-sf", col_fg_act, NULL };
+# Вызываем функцию process с переданным параметром
+process "$selected"
